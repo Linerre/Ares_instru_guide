@@ -1,0 +1,36 @@
+\documentclass[12pt, oneside, openany]{book}
+\input{preamble}
+
+%\includeonly{chapters/chapter1.tex, chapters/chapter2.tex}
+
+\begin{document}
+
+\include{chapters/titlepage} % why inlcude fails? 
+
+\frontmatter
+\tableofcontents
+
+\mainmatter
+
+\include{chapters/chapter1}
+
+\include{chapters/chapter2}
+
+\include{chapters/chapter3}
+
+\include{chapters/chapter4}
+
+\include{chapters/chapter5}
+
+\include{chapters/chapter6}
+
+\include{chapters/chapter7}
+
+\include{chapters/chapter8}
+
+\include{chapters/chapter9}
+
+\appendix
+\include{chapters/append}
+
+\end{document}

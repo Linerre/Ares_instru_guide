@@ -1,0 +1,183 @@
+% -------------------------------------------------------
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{dingbat}
+\usepackage{pdfpages}
+% \usepackage[T1]{fontenc}
+% \usepackage{cm-super}
+\usepackage[a4paper, top=2cm, bottom=2cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{marginnote}
+\usepackage{sidenotes}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage[font={footnotesize}, skip=4pt]{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+% \usepackage{subfig}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+
+\usepackage{blindtext}
+\usepackage[normalem]{ulem}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tocloft}
+
+\usepackage[colorlinks=true, pdfborder={0 0 0}]{hyperref}
+
+% \tcbuselibrary{documentation}
+
+
+
+% -------------------------------------------------------
+\pagestyle{fancy}
+% \fancyhead{} % clear all fields
+% \fancyhead[LE, RO]{\small Left}
+% \fancyhead[LO, RE]{\small Right}
+% \fancyfoot[C]{\thepage}
+\setcounter{tocdepth}{1}
+
+
+% -------------------------------------------------------
+% space
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.2ex}
+\setlength{\intextsep}{-7pt}
+
+
+% -------------------------------------------------------
+% color
+\definecolor{stress}{RGB}{128, 0, 0}   % {0.50196, 0, 0}
+\definecolor{nyu}{RGB}{87, 6, 140}     % {0.34117, 0.02353, 0.54902}
+\definecolor{areslight}{RGB}{96, 146, 196}
+\definecolor{aresdark}{RGB}{10, 87, 164}
+\definecolor{nyuclassbut}{RGB}{51, 116, 163}
+\definecolor{check}{RGB}{96, 179, 227}
+\definecolor{importbut}{RGB}{239,, 239, 239}
+\definecolor{warning}{RGB}{230, 244, 255}
+
+
+% -------------------------------------------------------
+% box
+\newtcolorbox{notebox}[1][NOTE]{%
+colback=white, 
+colframe=nyu, 
+colbacktitle=nyu, 
+title={\Large\bfseries\sffamily #1},
+lower separated=false
+}
+\newtcbox{\button}[1][nyu]{on line,%
+arc=4pt, colback=#1, colframe=#1, colupper=white,%
+before upper={\rule[-3pt]{0pt}{10pt}},boxrule=1pt,
+boxsep=0pt,left=3pt,right=3pt,top=1pt,bottom=1pt
+}
+
+\newtcbox{\nyuclass}[1][nyuclassbut]{on line,%
+arc=1pt, colback=#1, colframe=#1, colupper=white,%
+before upper={\rule[-3pt]{0pt}{10pt}},boxrule=1pt,
+boxsep=0pt,left=3pt,right=3pt,top=2pt,bottom=1pt
+}
+
+\newtcbox{\aresbut}[1][nyu]{on line,%
+arc=1pt, colback=#1, colframe=#1, colupper=white, fontupper=\sffamily,%
+before upper={\rule[-3pt]{0pt}{10pt}},boxrule=1pt,
+boxsep=0pt,left=3pt,right=3pt,top=2pt,bottom=1pt
+}
+
+\newtcbox{\checkbox}[1][check]{on line,%
+arc=1pt, colback=white, colframe=#1, colupper=#1,%
+before upper={\rule[-1pt]{0pt}{10pt}},boxrule=1pt,
+boxsep=0pt,left=1pt,right=1pt,top=1pt,bottom=1pt
+}
+
+\newtcbox{\importbut}[1][importbut]{on line,%
+arc=0pt, colback=#1, colframe=black!40!, colupper=black,%
+before upper={\rule[-3pt]{0pt}{10pt}},boxrule=1pt,
+boxsep=0pt,left=3pt,right=3pt,top=2pt,bottom=1pt
+}
+
+\newtcbox{\areswarning}[1][warning]{on line,%
+arc=0pt, colback=#1, colframe=#1, colupper=black!85!,%
+before upper={\rule[-3pt]{0pt}{10pt}},boxrule=1pt,
+boxsep=0pt,left=1pt,right=0pt,top=1pt,bottom=1pt
+}
+
+
+
+
+% -------------------------------------------------------
+% chapter & section titles
+% \titleformat{\chapter}[display]%
+%     {\bfseries\rmfamily\LARGE\color{nyu}}%
+%     {\chaptertitlename \ \thechapter}
+%     {10pt}
+% {%
+%     \rule{\textwidth}{1pt}
+%     % \vspace{0.5ex}
+%     \centering
+% } % before-code
+% [
+% \vspace{-1.5ex}%
+% \rule{\textwidth}{1pt}
+% ] % after-code
+
+\titleformat{\chapter}[frame]%
+    {\normalfont\color{aresdark}}
+    {\filright\footnotesize\enspace CHAPTER \thechapter \enspace}
+    {8pt}
+    {\Large\bfseries\filcenter}
+    
+\titleformat{\section}[hang]
+{\large\bfseries\color{aresdark}}
+{\thesection}{0.5em}{}
+
+\titleformat{\subsection}[hang]
+{\normalsize\bfseries\color{aresdark}}
+{\thesection}{0.5em}{}
+
+
+\titlespacing{\chapter}{0pt}{10pt}{15pt}
+\titlespacing{\section}{0pt}{*1}{*1}
+\titlespacing{\subsection}{0pt}{*1}{*0.5}
+% -------------------------------------------------------
+
+%L lists
+\setlist{topsep=-3pt, itemsep=0.1ex}
+\setlist[description]{style=nextline, font=\normalsize\color{aresdark}, before={\normalsize}}
+
+% -------------------------------------------------------
+% links
+\hypersetup{%
+urlcolor=areslight,%
+linkcolor=areslight%
+}
+
+\def\chapterautorefname{Chapter}
+\def\sectionautorefname{Section}
+
+% -------------------------------------------------------
+%  new commands
+\newcommand{\ares}{ARes }
+% \newcommand{\reserve}{\email{shanghai.reserves@nyu.edu}}
+\newcommand{\imp}{\color{stress}}
+\newcommand{\crtab}{\href{https://ares.library.nyu.edu}{\textcolor{white}{Course Reserve}}}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+\renewcommand{\baselinestretch}{1.1}
+
+
+% -------------------------------------------------------
+% ducoments structure
+\includeonly{
+chapters/titlepage,%
+chapters/chapter1,%
+chapters/chapter2,%
+chapters/chapter3,%
+chapters/chapter4,%
+chapters/chapter5,%
+chapters/chapter6,%
+chapters/chapter7,%
+chapters/chapter8,%
+chapters/chapter9,%
+chapters/append
+}
