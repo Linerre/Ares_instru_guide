@@ -1,6 +1,6 @@
 # ARes Guide For Instructors
 
-*This is work in progress. *
+*This is a work in progress. *
 
 This Instructional Guide introduces **ARes** (short for **A**utomated **R**eserves). 
 
